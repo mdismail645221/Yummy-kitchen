@@ -13,9 +13,11 @@ const firebaseConfig = {
   storageBucket: "yummy-kitchen-5875e.appspot.com",
   messagingSenderId: "739127209657",
   appId: "1:739127209657:web:2eb96e50f3b33276ccf568",
-  measurementId: "G-DENMEZ5HDD"
+  measurementId: "G-DENMEZ5HDD",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export default app;

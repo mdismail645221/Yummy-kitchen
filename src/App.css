@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* default clour */
+
+.primary-color{
+  color: #E16847;
+}
+.primary-bg-color{
+  background: #E16847;
+}

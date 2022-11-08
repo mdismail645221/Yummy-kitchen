@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { AuthConext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
-import {useNavigate, useLocation} from 'react-router-dom'
+import {useNavigate, useLocation, Link} from 'react-router-dom'
 
 const Login = () => {
 
@@ -32,6 +32,7 @@ const Login = () => {
         })
         .catch((error)=> {
             console.error(error)
+            setError(error.message)
         })
     }
 
@@ -56,8 +57,9 @@ const Login = () => {
             <div className="bg-slate-50 border-[#E16847] mx-auto max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100" style={{ border: "1px solid #E16847", boxShadow: "5px 15px 15px #E16847" }}>
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-400">Dont have account?
-                    <a href="#" rel="noopener noreferrer" className="focus:underline hover:underline">Sign up here</a>
+                    <Link to="/register" rel="noopener noreferrer" className="focus:underline text-orange-600 hover:underline">Register  here</Link>
                 </p>
+                <p className="text-sm text-center dark:text-gray-400 text-red-600">{error}</p>
                 <div className="my-6 space-y-4" onClick={googleLogInHandler}>
                     <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">

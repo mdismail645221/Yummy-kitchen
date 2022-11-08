@@ -19,9 +19,10 @@ const Register = () => {
         // console.log(email, name, url)
         createUser(email, password)
             .then(result => {
+                toast.success('successfully registered', {duration: 3000})
+                form.reset()
                 const user = result.user;
                 updateUsers(name, url)
-                toast.success('successfully registered', {duration: 3000})
                 console.log(user)
             })
             .catch((error) => {
@@ -43,6 +44,7 @@ const Register = () => {
             }))
             .catch((error) => {
                 console.log(error);
+                toast.error(error)
                 setError(error.message)
             })
 
@@ -162,8 +164,8 @@ const Register = () => {
                                             Subscribe
                                         </button>
                                     </div>
-                                    <p className="text-xs text-gray-600 sm:text-sm">
-                                        We respect your privacy. Unsubscribe at any time.
+                                    <p className="text-xs text-red-600 font-semibold sm:text-sm">
+                                        {error}
                                     </p>
                                 </form>
                             </div>

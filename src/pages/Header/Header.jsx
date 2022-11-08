@@ -29,7 +29,7 @@ const Header = () => {
                     <li onClick={handleLogOut}><NavLink  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
                     <li onClick={handleLogOut}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                         {
-                            user?.photoURL 
+                            user 
                             ?
                             <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-orange-600 ring-offset-gray-800' />
                             :

@@ -27,7 +27,13 @@ const Header = () => {
                     <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">My Review</NavLink></li>
                     <li onClick={handleLogOut}><NavLink  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
                     <li onClick={handleLogOut}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-                    <img src={user?.photoURL ? user.photoURL : `https://source.unsplash.com/100x100/?portrait`} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                        {
+                            user?.photoURL 
+                            ?
+                            <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-orange-600 ring-offset-gray-800' />
+                            :
+                            <button className='text-white'>No user</button>
+                        }
                     </li>
                 </>
                 :

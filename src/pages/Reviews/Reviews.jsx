@@ -4,7 +4,7 @@ const Reviews = () => {
     return (
         <section className='w-4/5 mx-auto bg-gray-50 py-28 px-8'>
             <div className='text-center'>
-                <h3 className='text-5xl font-bold primary-color'>Our Reviews</h3>
+                <h3 className='text-5xl font-bold primary-color'>Somes Reviews</h3>
                 <p className='text-gray-500 space-5 pt-8 pb-16 text-lg'> Many people have given beautiful reviews here.<br /> You can give a review if you want. They gave a review of the food they liked.</p>
             </div>
 

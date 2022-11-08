@@ -2,12 +2,17 @@ import React, {useContext, useState} from 'react';
 import { AuthConext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
+import {useNavigate, useLocation} from 'react-router-dom'
 
 const Login = () => {
 
     const [error, setError] = useState(null)
     const {logIn, googleLogIn} = useContext(AuthConext);
     const googleProvider = new GoogleAuthProvider();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location?.state?.from?.pathname || '/';
 
     
 
@@ -23,6 +28,7 @@ const Login = () => {
             form.reset()
             toast.success('successfully login. GOOD JOB', {duration: 3000})
             console.log(user)
+            navigate(from, {replace: true})
         })
         .catch((error)=> {
             console.error(error)

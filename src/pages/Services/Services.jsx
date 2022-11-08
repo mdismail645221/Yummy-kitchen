@@ -31,6 +31,7 @@ const Services = () => {
                     ></SignleServices>)
                 }
             </div>
+            
         </section>
     );
 };

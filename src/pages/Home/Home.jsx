@@ -1,10 +1,10 @@
 import React from 'react';
-import Slider from '../shared/Slider/Slider';
+import Slider from '../shared/Sliders/Slider';
 
 const Home = () => {
     return (
         <div>
-           <Slider></Slider>
+            <Slider></Slider>
         </div>
     );
 };

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name" : "PULI PITHA",
+        "image": "https://i.ibb.co/1dKzpGt/puli-Pitha.png",
+        "price" : 120,
+        "description": "Paush-Parban, the festival of Pithe-Puli of Bengali, has just passed. On the auspicious occasion of Paush Sankranti, Bengali henshel bahari are overflowing with puli and pies. But eating the same sweets can lead to boredom. If you want to eat something delicious in winter, you can make chicken puli. There is a way."
+    },
+    {
+        "id": 2,
+        "name" : "BAPA PITHA",
+        "image": "https://i.ibb.co/YNMg24w/bapa-Pitha.png",
+        "price" : 150,
+        "description": "When it comes to winter snacks, it's hard to beat a good pitha. Sweet or savoury, no matter your preference, there's a pitha out there for everyone. And of course, the best place to buy these delicious and affordable pithas is by the roadside. One of the most common sights of a chilly winter evening is the pitha cart. The variety of pitha being sold ranges from the uber popular bhapa pitha to the slightly lesser known puli pitha. The prices start from Tk 10 but a handful of pitha hubs sell pithas priced around the Tk 25 to 40 range."
+    },
+    {
+        "id": 3,
+        "name" : "CHITOI PITHA",
+        "image": "https://i.ibb.co/Xbtdcw9/chitoi-pitha.png",
+        "price" : 200,
+        "description": "My favourite combination, however, is the chingri shutki and morich bhorta. The dried shrimp flavour mixed with the little hints of spice, makes it an unparalleled evening snack. Another great thing about chitoi pitha carts is that you will only be charged for the pithas and all the bhortas are complimentary. Bhapa pithas, are arguably just as popular as chitoi pitha, if not more so. And if you're in the mood for one, the cart across the street from Central Hospital makes some pretty decent pies and is definitely worth checking out."
+    },
+    {
+        "id" : 4,
+        "name" : "HUMBLE PITHA",
+        "image": "https://i.ibb.co/nMxdVzm/humble-pitha.png",
+        "price" : 450,
+        "description": "A popular pitha hub located in front of the Shwapno on Road 27 of Dhanmondi has an impressive selection of pithas.  The pithas are slightly more expensive but you also have a lot more options. Other than the aforementioned malpuas, you can also get patishapta and puli pithas, the bideshe porua cousins of the pitha family. And much like our bideshe porua cousins, they often appear indistinguishable from actual foreigners but are at their core very different. Puli pithas have a large variety of fillings including coconut, chicken and sometimes even cauliflower. They also look very similar to fried dumplings. Patishapta also have a strange resemblance to another foreign food i.e. rice crepes."
+    },
+    {
+        "id" : 5,
+        "name" : "BINNI CHALER PITHA",
+        "image": "https://i.ibb.co/nMxdVzm/humble-pitha.png",
+        "price" : 250,
+        "description": "Binni rice pita is one of the favorite foods in winter. Before the sun rises in the morning, mothers sit on the stove and cook the traditional binni rice pita. Very tasty to eat. This food is more common in winter. Everyone likes this food very much."
+    },
+    {
+        "id" : 6,
+        "name" : "Date juice pita",
+        "image": "https://i.ibb.co/2kcPRR8/rosel-pitha.png",
+        "price" : 350,
+        "description": "Can't describe how refreshing fresh date palm juice is on a winter morning. And date juice pies and pies are delicious. Due to this, palm juice milk, pies and pies are popular in rural areas at the beginning of the winter season. Every day some houses organize food made from palm juice. He will never forget the taste of drinking the sweet juice of dates sitting in the courtyard of the house on a winter morning to take the heat of the sun. Not only date palm juice but also delicious patali and jaggery are made from it."
+    }
+]

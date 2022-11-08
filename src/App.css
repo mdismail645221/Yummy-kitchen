@@ -39,6 +39,17 @@
 
 /* default clour */
 
+.btn-primary{
+  background-color: #E16847;
+  color: #fff;
+  font-weight: 700;
+  transition: 0.5ms;
+}
+
+.btn-primary:hover{
+  background-color: #e2481d;
+}
+
 .primary-color{
   color: #E16847;
 }

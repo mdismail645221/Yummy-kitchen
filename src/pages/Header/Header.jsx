@@ -5,24 +5,44 @@ import { AuthConext } from '../../context/AuthProvider';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const {user}= useContext(AuthConext);
+    const { user, logOut } = useContext(AuthConext);
     console.log(user)
+
+    const handleLogOut = () => [
+        logOut()
+        .then(()=>{})
+        .then((error)=> {
+            console.log(error)
+        })
+    ]
 
 
     const menuItems = <>
-        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Home</NavLink></li>
-        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
-        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Services</NavLink></li>
-        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">My Review</NavLink></li>
-        <li><NavLink to='/login' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Login</NavLink></li>
-        <li><NavLink to='/register' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Register</NavLink></li>
+            <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Home</NavLink></li>
+            <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
+        {
+            user ?
+            <>
+                    <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Services</NavLink></li>
+                    <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">My Review</NavLink></li>
+                    <li onClick={handleLogOut}><NavLink  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
+                    <li onClick={handleLogOut}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                    <img src={user?.photoURL ? user.photoURL : `https://source.unsplash.com/100x100/?portrait`} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                    </li>
+                </>
+                :
+                <>
+                <li><NavLink to='/login' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Login</NavLink></li>
+                <li><NavLink to='/register' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Register</NavLink></li>
+                </>
+        }
     </>
 
 
 
 
     return (
-        <div className="bg-gray-900 py-2" style={{position: "fixed", top: "0", zIndex: "10", left: "0", width: "100%"}}>
+        <div className="bg-gray-900 py-2" style={{ position: "fixed", top: "0", zIndex: "10", left: "0", width: "100%" }}>
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <a
@@ -36,7 +56,7 @@ const Header = () => {
                         </span>
                     </a>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
-                            {menuItems}
+                        {menuItems}
                     </ul>
                     <div className="lg:hidden">
                         <button

@@ -1,11 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import rgBanner from '../../assets/images/rgBanner.jpg'
 import { AuthConext } from '../../context/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState(null)
-    const {createUser, updateUser} = useContext(AuthConext)
+    const { createUser, updateUser } = useContext(AuthConext)
 
 
     const submitHandler = (event) => {
@@ -17,15 +18,16 @@ const Register = () => {
         const password = form.password.value;
         // console.log(email, name, url)
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            updateUsers(name, url)
-            console.log(user)
-        })
-        .catch((error)=> {
-            console.log(error)
-            setError(error.message)
-        })
+            .then(result => {
+                const user = result.user;
+                updateUsers(name, url)
+                toast.success('successfully registered', {duration: 3000})
+                console.log(user)
+            })
+            .catch((error) => {
+                console.log(error)
+                setError(error.message)
+            })
     }
 
 
@@ -35,14 +37,14 @@ const Register = () => {
             photoURL: url
         }
         updateUser(profile)
-        .then((result=> {
-            // const user= result.user;
-            // console.log(user)
-        }))
-        .catch((error)=> {
-            console.log(error);
-            setError(error.message)
-        })
+            .then((result => {
+                // const user= result.user;
+                // console.log(user)
+            }))
+            .catch((error) => {
+                console.log(error);
+                setError(error.message)
+            })
 
     }
 

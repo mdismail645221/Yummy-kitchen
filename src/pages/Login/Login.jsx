@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { AuthConext } from '../../context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -17,11 +18,12 @@ const Login = () => {
         logIn(email, password)
         .then(result=> {
             const user = result.user;
+            form.reset()
+            toast.success('successfully login. GOOD JOB', {duration: 3000})
             console.log(user)
         })
         .catch((error)=> {
             console.error(error)
-
         })
     }
 

@@ -9,8 +9,8 @@ const About = () => {
         <div className='flex flex-col-reverse md:flex-row  w-4/5 mx-auto items-center justify-between bg-gray-200 px-3 py-8'>
             {/* LEFT */}
             <div className='text-left'  style={{width: "58%"}}>
-                <h3 className='text-2xl font-semibold my-3'>ABOUT US</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan.</p>
+                <h3 className='text-2xl font-semibold my-3 primary-color '>ABOUT US</h3>
+                <p>I am a professional maid. I always love to create new dishes and present these beautiful items to you. I can cook very well. Also I have delivered a lot of food. Client gave me very good response.</p>
                 <hr className='border border-orange-500 w-1/2 my-8' />
                 <div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id.</p>

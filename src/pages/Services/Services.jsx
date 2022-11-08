@@ -1,11 +1,14 @@
-import React, { useContext, useState } from 'react';
+import { data } from 'autoprefixer';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthConext } from '../../context/AuthProvider';
+import AllReviews from './AllReviews';
 
 const Services = () => {
 
     const [userReviewMsg, setUserReviewMsg] = useState('')
+    const [allReviews, setAllReviews] = useState([]);
     const { user } = useContext(AuthConext)
 
     const singleServiceItmes = useLoaderData();
@@ -23,7 +26,7 @@ const Services = () => {
         console.log()
 
         
-        const allReviews = {
+        const singleRiviews = {
             serviceInfo: userReviewMsg,
             useEmail: user?.email,
             userName: user?.displayName,
@@ -40,23 +43,34 @@ const Services = () => {
             event.target.form.reset()
         }
 
-        // console.log(allReviews)
+        // console.log(singleRiviews)
 
         fetch(`http://localhost:5000/allReviews`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(allReviews)
+            body: JSON.stringify(singleRiviews)
         })
         .then(res=> res.json())
         .then(data => {
             console.log(data)
         })
 
-
-
     }
+
+
+    // all reviews data load in database
+    useEffect(()=>{
+        fetch( `http://localhost:5000/allReviews`)
+        .then(res=> res.json())
+        .then(data=> {
+            // console.log(data)
+            setAllReviews(data)
+        })
+    },[]) 
+
+    
 
 
 
@@ -64,7 +78,7 @@ const Services = () => {
     return (
         <section className='container mx-auto'>
             {/* // service details info */}
-            <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 border-spacing-0 border-gray-100 shadow-lg my-20">
+            <div className="container flex flex-col w-full px-5 py-10 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 border-spacing-0 border-gray-100 shadow-lg my-20 bg-orange-100">
                 <div className="flex justify-between p-4">
                     <h2 className='text-lg md:text-2xl font-semibold lg:font-bold'>Services details</h2>
                 </div>
@@ -74,16 +88,16 @@ const Services = () => {
             </div>
             {/* // review fot that service--- */}
             <div>
-                <article className="container mx-auto  dark:bg-gray-800 dark:text-gray-50 bg-gray-200 mb-20">
-                    <div className="border-t dark:border-gray-700 my-10 border-spacing-1 border-gray-300 rounded-lg shadow-lg">
-                        <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row px-5 py-3">
-                            <img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-                            <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">Leroy Jenkins</h4>
-                                <p className="dark:text-gray-400">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>
-                            </div>
-                        </div>
+                <article className="container mx-auto  dark:bg-gray-800 dark:text-gray-50  mb-20">
+                    <div>
+                        <h3 className='text-2xl md:text-5xl text-center py-10 primary-color font-bold'>Peoples Reviews</h3>
                     </div>
+                    {
+                        allReviews.map(review=> <AllReviews
+                            key={review._id}
+                            review={review}
+                        ></AllReviews>)
+                    }
                 </article>
                 <div>
                     {

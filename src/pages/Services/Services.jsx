@@ -20,7 +20,7 @@ const Services = () => {
     return (
         <section className='w-4/5 mx-auto py-18'>
             <div className='text-center'>
-                <h3 className='text-5xl font-bold'>Services</h3>
+                <h3 className='text-5xl font-bold primary-color'>Services</h3>
                 <p className='text-gray-500 space-5 pt-8 pb-16 text-lg'>Many new food recipes are shown here daily.<br/> All are my own food. Hope you will like my food items very much. I like whoever you like. You will know by commenting.</p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-16'>

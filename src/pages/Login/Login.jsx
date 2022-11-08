@@ -46,7 +46,7 @@ const Login = () => {
 
 
     return (
-        <section className='w-4/5 mx-auto my-20 py-20'>
+        <section className='w-4/5 mx-auto py-20'>
             <div className="bg-slate-50 border-[#E16847] mx-auto max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100" style={{ border: "1px solid #E16847", boxShadow: "5px 15px 15px #E16847" }}>
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-400">Dont have account?

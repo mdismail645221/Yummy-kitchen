@@ -48,7 +48,7 @@ const Header = () => {
 
 
     return (
-        <div className="bg-gray-900 py-2" style={{ position: "fixed", top: "0", zIndex: "10", left: "0", width: "100%" }}>
+        <div className="bg-gray-900 py-2" style={{ position: "sticky", top: "0", zIndex: "10", left: "0", width: "100%" }}>
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <a

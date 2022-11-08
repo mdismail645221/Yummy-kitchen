@@ -52,7 +52,7 @@ const Register = () => {
 
 
     return (
-        <div className="relative mt-20">
+        <div className="relative">
             <img
                 src={rgBanner}
                 className="absolute inset-0 object-cover w-full h-full"

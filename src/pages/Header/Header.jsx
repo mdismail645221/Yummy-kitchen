@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthConext } from '../../context/AuthProvider';
+import logo from '../../assets/images/favicon.ico'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +58,7 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
+                        <img src={logo} alt="logo" className='w-16 h-16 rounded-full' />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                             YUMMY KITCHEN
                         </span>

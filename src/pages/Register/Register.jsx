@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
+import { Link } from 'react-router-dom';
 import rgBanner from '../../assets/images/rgBanner.jpg'
+import { AuthConext } from '../../context/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState(null)
+    const {createUser, updateUser} = useContext(AuthConext)
 
 
     const submitHandler = (event) => {
@@ -10,7 +14,36 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const url = form.url.value;
-        console.log(email, name, url)
+        const password = form.password.value;
+        // console.log(email, name, url)
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            updateUsers(name, url)
+            console.log(user)
+        })
+        .catch((error)=> {
+            console.log(error)
+            setError(error.message)
+        })
+    }
+
+
+    const updateUsers = (name, url) => {
+        const profile = {
+            displayName: name,
+            photoURL: url
+        }
+        updateUser(profile)
+        .then((result=> {
+            // const user= result.user;
+            // console.log(user)
+        }))
+        .catch((error)=> {
+            console.log(error);
+            setError(error.message)
+        })
+
     }
 
 
@@ -28,21 +61,17 @@ const Register = () => {
                     <div className="flex flex-col items-center justify-between xl:flex-row">
                         <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                The quick, brown fox <br className="hidden md:block" />
-                                jumps over a{' '}
-                                <span className="text-teal-accent-400">lazy dog</span>
+                                Wellcome ! Create Your <br className="hidden md:block" />
+                                Registered{' '}
+                                <span className="text-teal-accent-400">Form</span>
                             </h2>
                             <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                                quae.
+                                Create amazing and attractive login or Register forms in Elemtor without and any coding using Ea losing Register form.
                             </p>
-                            <a
-                                href="/"
-                                aria-label=""
-                                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
+                            <p
+                                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-white text-lg"
                             >
-                                Learn more
+                                Already hava a account? <Link to='/login' className='primary-color font-bold px-3 hover:underline'>Log in</Link>
                                 <svg
                                     className="inline-block w-3 ml-2"
                                     fill="currentColor"
@@ -50,12 +79,12 @@ const Register = () => {
                                 >
                                     <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                                 </svg>
-                            </a>
+                            </p>
                         </div>
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                                    Sign up for updates
+                                    Register for updates
                                 </h3>
                                 <form onSubmit={submitHandler}>
                                     <div className="mb-1 sm:mb-2">
@@ -104,6 +133,23 @@ const Register = () => {
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                             id="email"
                                             name="email"
+                                        />
+                                    </div>
+                                    {/* password --> */}
+                                    <div className="mb-1 sm:mb-2">
+                                        <label
+                                            htmlFor="email"
+                                            className="inline-block mb-1 font-medium"
+                                        >
+                                            Password
+                                        </label>
+                                        <input
+                                            placeholder="password"
+                                            required
+                                            type="password"
+                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                            id="password"
+                                            name="password"
                                         />
                                     </div>
                                     <div className="mt-4 mb-2 sm:mb-4">

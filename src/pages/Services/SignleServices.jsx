@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignleServices = ({ product }) => {
-    const {image, id, price, description, name} = product;
+    const {image, _id, price, description, name} = product;
     return (
         <div className="w-full rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
             <img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
@@ -11,7 +12,8 @@ const SignleServices = ({ product }) => {
                     <p className="dark:text-gray-100">{description.length > 100 ? description.slice(0, 100) + '....' : description}</p>
                     <p><strong>Price: </strong>${price}</p>
                 </div>
-                <button  type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md btn-primary">Read more</button>
+                <Link to={`/services/${_id}`} className='flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md btn btn-primary'>View Details</Link>
+                
             </div>
         </div>
     );

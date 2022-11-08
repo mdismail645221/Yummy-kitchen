@@ -13,7 +13,7 @@ const Slider = () => {
                     <div id='img-gradiant' className='w-full h-screen'>
                         <img src={humble} className='w-full' style={{ height: "600px" }} alt='pitha' />
                     </div>
-                    <div className="absolute flex justify-between transform -translate-y-1/2 gap-3 bottom-0 right-1/2">
+                    <div className="absolute flex justify-between transform translate-x-1/2 gap-3 bottom-0 right-1/2 my-5">
                         <a href="#slide4" className="btn btn-circle bg-orange-500 ">❮</a>
                         <a href="#slide2" className="btn btn-circle bg-orange-500 ">❯</a>
                     </div>

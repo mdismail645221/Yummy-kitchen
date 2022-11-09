@@ -23,7 +23,7 @@ const Header = () => {
 
     const menuItems = <>
         <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Home</NavLink></li>
-        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
+        <li><NavLink to='/blog' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
         {
             user ?
                 <>

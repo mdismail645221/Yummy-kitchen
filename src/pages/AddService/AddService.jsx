@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 const AddService = () => {
@@ -29,7 +30,8 @@ const AddService = () => {
         })
         .then(res=> res.json())
         .then(data=> {
-            console.log(data)
+            toast.success('successfully')
+            // console.log(data)
         })
         
     }

@@ -21,13 +21,13 @@ const MyReviewsTableRows = ({ myReview, handleDelete }) => {
                 <textarea className="textarea textarea-bordered w-full" defaultValue={serviceInfo} disabled></textarea>
             </td>
             <td>
-                <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
-                    <PencilIcon className="h-6 w-6 text-green-600 font-bold" />
-                    <span className='text-green-600 font-bold'>Edit</span>
+                <button type="button" className="btn px-3 btn-outline flex items-center py-1 pl-0 space-x-1">
+                    <PencilIcon className="h-6 w-6 text-green-600 font-bold " />
+                    <span className='text-green-600 font-bold '>Edit</span>
                 </button>
             </td>
             <td>
-                <button onClick={()=>handleDelete(_id)} type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
+                <button onClick={()=>handleDelete(_id)} type="button" className="btn btn-outline flex items-center px-2 py-1 pl-0 space-x-1">
                     <TrashIcon className="h-6 w-6 text-red-600 font-bold" />
                     <span className='text-red-600 font-bold'>Remove</span>
                 </button>

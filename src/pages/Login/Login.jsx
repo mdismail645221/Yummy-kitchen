@@ -3,12 +3,16 @@ import { AuthConext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
 import {useNavigate, useLocation, Link} from 'react-router-dom'
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+
+
 
     const [error, setError] = useState(null)
     const {logIn, googleLogIn} = useContext(AuthConext);
     const googleProvider = new GoogleAuthProvider();
+    useTitle('Login')
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,7 +31,29 @@ const Login = () => {
             const user = result.user;
             form.reset()
             toast.success('successfully login. GOOD JOB', {duration: 3000})
-            console.log(user)
+            // console.log(user)
+
+
+
+            // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
+            const currentUser = {
+                email: user.email
+            }
+
+            fetch(`http://localhost:5000/jwt`, {
+                method: 'POST', 
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res=> res.json())
+            .then(data=> {
+                console.log(data)
+                if(data){
+                    localStorage.setItem('YUMMY-TOKEN', data.token)
+                }
+            })
             navigate(from, {replace: true})
         })
         .catch((error)=> {
@@ -40,9 +66,31 @@ const Login = () => {
     const googleLogInHandler = () => {
         googleLogIn(googleProvider)
         .then(result=> {
-            navigate(from, {replace: true})
+
             const user = result.user;
-            console.log(user)
+
+
+             // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
+             const currentUser = {
+                email: user.email
+            }
+
+            fetch(`http://localhost:5000/jwt`, {
+                method: 'POST', 
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res=> res.json())
+            .then(data=> {
+                console.log(data)
+                if(data){
+                    localStorage.setItem('YUMMY-TOKEN', data.token)
+                }
+                navigate(from, {replace: true})
+            })
+
         })
         .catch((error)=> {
             console.log(error)

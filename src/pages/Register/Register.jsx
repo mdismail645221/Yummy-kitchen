@@ -3,10 +3,12 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import rgBanner from '../../assets/images/rgBanner.jpg'
 import { AuthConext } from '../../context/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState(null)
     const { createUser, updateUser } = useContext(AuthConext)
+    useTitle('register')
 
 
     const submitHandler = (event) => {

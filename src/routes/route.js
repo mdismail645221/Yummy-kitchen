@@ -1,3 +1,4 @@
+import { PrinterIcon } from "@heroicons/react/24/solid";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AddService from "../pages/AddService/AddService";
@@ -8,6 +9,7 @@ import MyReviews from "../pages/MyReviews/MyReviews";
 import Register from "../pages/Register/Register";
 import AllServices from "../pages/Services/AllServices";
 import Services from "../pages/Services/Services";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +44,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myReviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
             {
                 path: '/AddService',

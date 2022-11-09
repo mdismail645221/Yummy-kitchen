@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthConext } from '../../context/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import AllReviews from './AllReviews';
 
 const Services = () => {
@@ -10,6 +11,7 @@ const Services = () => {
     const [userReviewMsg, setUserReviewMsg] = useState('')
     const [allReviews, setAllReviews] = useState([]);
     const { user } = useContext(AuthConext)
+    useTitle('Services')
 
     const singleServiceItmes = useLoaderData();
     // console.log(singleServiceItmes)
@@ -23,9 +25,6 @@ const Services = () => {
     const handleReviewSubmit = (event) => {
         event.preventDefault()
 
-        console.log()
-
-        
         const singleRiviews = {
             serviceInfo: userReviewMsg,
             email: user?.email,
@@ -35,15 +34,13 @@ const Services = () => {
         }
 
 
-        if(userReviewMsg.length <= 40 && userReviewMsg.length <= 0){
+        if(userReviewMsg.length < 40 && userReviewMsg.length > 0){
             toast.error('please added the 40 characters.')
             return
         }else{
             toast.success('Successfully added your revies. GOOD JOB')
             event.target.form.reset()
         }
-
-        // console.log(singleRiviews)
 
         fetch(`http://localhost:5000/allReviews`, {
             method: 'POST',
@@ -65,7 +62,6 @@ const Services = () => {
         fetch( `http://localhost:5000/allReviews`)
         .then(res=> res.json())
         .then(data=> {
-            // console.log(data)
             setAllReviews(data)
         })
     },[userReviewMsg]) 

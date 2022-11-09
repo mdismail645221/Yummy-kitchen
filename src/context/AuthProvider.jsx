@@ -40,6 +40,7 @@ const AuthProvider = ({children}) => {
 // user log out authentication 
     const logOut = () => {
         setLoading(true)
+        localStorage.removeItem('YUMMY-TOKEN')
         return signOut(auth)
     }
 
@@ -52,6 +53,7 @@ const AuthProvider = ({children}) => {
         const unSubcribed = onAuthStateChanged(auth, (currentUser)=>{
             console.log('onsateChaged', currentUser)
             setUser(currentUser)
+            setLoading(false)
         })
         return ()=> {
             unSubcribed();
@@ -65,7 +67,8 @@ const AuthProvider = ({children}) => {
         logIn,
         updateUser,
         googleLogIn,
-        logOut
+        logOut,
+        loading
     }
     return (
         <AuthConext.Provider value={authInfo}>

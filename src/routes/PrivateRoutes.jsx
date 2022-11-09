@@ -10,7 +10,9 @@ const PrivateRoutes = ({children}) => {
 
     if(loading){
         return (
-            <div className="w-16 border-4 border-dashed rounded-full animate-spin dark:border-orange-400 h-screen mx-auto"></div>
+            <div className='h-screen flex items-center'>
+                <button className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-orange-400 mx-auto"></button>
+            </div>
         )
     }
 

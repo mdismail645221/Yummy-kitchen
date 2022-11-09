@@ -1,61 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SingleImg from './SingleImg';
 
 const Reviews = () => {
-    return (
-        <section className='w-4/5 mx-auto bg-gray-50 py-28 px-8'>
-            <div className='text-center'>
-                <h3 className='text-5xl font-bold primary-color'>Somes Reviews</h3>
-                <p className='text-gray-500 space-5 pt-8 pb-16 text-lg'> Many people have given beautiful reviews here.<br /> You can give a review if you want. They gave a review of the food they liked.</p>
-            </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
-                {/* left */}
-                <div className='left-container'>
-                    {/* info container */}
-                    <div className='bg-gray-100 shadow-lg'>
-                        <div className='flex items-center justify-between info-container'>
-                            <div className='flex'>
-                                <div>
-                                    <img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-                                </div>
-                                <div>
-                                    <h4>ISMAIL HOSSAIN</h4>
-                                    <p>Students</p>
-                                </div>
-                            </div>
-                            <div>
-                                <p>OSAM</p>
-                            </div>
-                        </div>
-                        {/* info-body */}
-                        <div className='text-left'>
-                            <p>bapa pitha ta onek sundor hoice. samne aro valo valo pitha banaben.</p>
-                        </div>
-                    </div>
+
+
+    const [imgMenu, setImgMenu] = useState([]);
+    useEffect(() => {
+        fetch('manu.json')
+            .then(res => res.json())
+            .then(data => {
+                setImgMenu(data)
+            })
+    }, [])
+
+
+
+    return (
+        <section className="py-6 dark:bg-gray-800 dark:text-gray-100">
+            <div className="container p-4 mx-auto space-y-16 sm:p-10">
+                <div className="space-y-4">
+                    <h3 className="text-2xl font-bold leading-none sm:text-5xl primary-color">WHAT'S ON THE MENU</h3>
+                    <p className="mx-auto max-w-2xl dark:text-gray-400 ">At a assumenda quas cum earum ut itaque commodi saepe rem aspernatur quam natus quis nihil quod, hic explicabo doloribus magnam neque, exercitationem eius sunt!</p>
                 </div>
-                {/* right */}
-                <div className='left-container'>
-                    {/* info container */}
-                    <div className='bg-gray-100 shadow-lg'>
-                        <div className='flex items-center justify-between info-container'>
-                            <div className='flex'>
-                                <div>
-                                    <img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-                                </div>
-                                <div>
-                                    <h4>ISMAIL HOSSAIN</h4>
-                                    <p>Students</p>
-                                </div>
-                            </div>
-                            <div>
-                                <p>OSAM</p>
-                            </div>
-                        </div>
-                        {/* info-body */}
-                        <div className='text-left'>
-                            <p>bapa pitha ta onek sundor hoice. samne aro valo valo pitha banaben.</p>
-                        </div>
-                    </div>
+                <div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+                    {
+                        imgMenu.map((img, idx)=> <SingleImg
+                            key={idx}
+                            img={img}
+                        ></SingleImg>)
+                    }
                 </div>
             </div>
         </section>

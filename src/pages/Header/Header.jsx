@@ -27,7 +27,7 @@ const Header = () => {
         {
             user ?
                 <>
-                    <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Add Services</NavLink></li>
+                    <li><NavLink to='/AddService' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Add Services</NavLink></li>
                     <li><NavLink to='/myReviews' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">My Reviews</NavLink></li>
                     <li onClick={handleLogOut}><NavLink className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
                     <li onClick={handleLogOut} className="flex justify-center font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">

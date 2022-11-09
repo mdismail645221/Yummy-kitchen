@@ -11,36 +11,36 @@ const Header = () => {
 
     const handleLogOut = () => [
         logOut()
-        .then(()=>{})
-        .then((error)=> {
-            console.log(error)
-        })
+            .then(() => { })
+            .then((error) => {
+                console.log(error)
+            })
     ]
 
 
     const menuItems = <>
-            <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Home</NavLink></li>
-            <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
+        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Home</NavLink></li>
+        <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Blog</NavLink></li>
         {
             user ?
-            <>
+                <>
                     <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Add Services</NavLink></li>
                     <li><NavLink to='/home' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">My Reviews</NavLink></li>
-                    <li onClick={handleLogOut}><NavLink  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
-                    <li onClick={handleLogOut}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                    <li onClick={handleLogOut}><NavLink className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Log out</NavLink></li>
+                    <li onClick={handleLogOut} className="flex justify-center font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                         {
-                            user 
-                            ?
-                            <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-orange-600 ring-offset-gray-800' />
-                            :
-                            <button className='text-white'>No user</button>
+                            user
+                                ?
+                                <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-orange-600 ring-offset-gray-800' />
+                                :
+                                <button className='text-white'>No user</button>
                         }
                     </li>
                 </>
                 :
                 <>
-                <li><NavLink to='/login' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Login</NavLink></li>
-                <li><NavLink to='/register' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Register</NavLink></li>
+                    <li><NavLink to='/login' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Login</NavLink></li>
+                    <li><NavLink to='/register' className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Register</NavLink></li>
                 </>
         }
     </>
@@ -90,7 +90,7 @@ const Header = () => {
                         </button>
                         {isMenuOpen && (
                             <div className="absolute top-0 left-0 w-full">
-                                <div className="p-5 bg-white border rounded shadow-sm">
+                                <div className="p-5 primary-bg-color border rounded shadow-sm">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
                                             <a
@@ -99,23 +99,9 @@ const Header = () => {
                                                 title="Company"
                                                 className="inline-flex items-center"
                                             >
-                                                <svg
-                                                    className="w-8 text-deep-purple-accent-400"
-                                                    viewBox="0 0 24 24"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeMiterlimit="10"
-                                                    stroke="currentColor"
-                                                    fill="none"
-                                                >
-                                                    <rect x="3" y="1" width="7" height="12" />
-                                                    <rect x="3" y="17" width="7" height="6" />
-                                                    <rect x="14" y="1" width="7" height="6" />
-                                                    <rect x="14" y="11" width="7" height="12" />
-                                                </svg>
+                                                <img src={logo} alt="logo" className='w-16 h-16 rounded-full' />
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                    Company
+                                                    YUMMY KITCHEN
                                                 </span>
                                             </a>
                                         </div>

@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthConext } from '../../context/AuthProvider';
 import MyReviewsTableRows from './MyReviewsTableRows';
+import {ChevronRightIcon} from '@heroicons/react/24/solid'
 
 const MyReviews = () => {
 
@@ -41,7 +43,19 @@ const MyReviews = () => {
 
     return (
         <div className="overflow-x-auto container mx-auto my-20">
-            <table className="table w-full">
+            {
+               myReviews.length === 0 ?
+               <>
+                <div className='h-screen flex flex-col justify-center items-center'>
+                    <h2 className='text-5xl py-3 font-bold'>No reviews were added</h2>
+                    <Link to="/" className='btn btn-primary my-5 flex justify-center'>
+                        HOME
+                        <ChevronRightIcon className="h-6 w-10 text-white font-bold" />
+                    </Link>
+                </div>
+               </>
+               :
+               <table className="table w-full">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
@@ -62,6 +76,7 @@ const MyReviews = () => {
                    }
                 </tbody>
             </table>
+            }
         </div>
     );
 };

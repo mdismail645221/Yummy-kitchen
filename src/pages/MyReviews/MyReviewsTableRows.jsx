@@ -1,9 +1,14 @@
 import React from 'react';
 import {TrashIcon, PencilIcon  } from '@heroicons/react/24/solid'
 
-const MyReviewsTableRows = ({ myReview }) => {
-    console.log(myReview)
-    const { userImg, userName, serviceInfo } = myReview;
+const MyReviewsTableRows = ({ myReview, handleDelete }) => {
+    // console.log(myReview)
+    const { userImg, userName, serviceInfo, _id } = myReview;
+
+
+
+
+
     return (
         <tr>
             <th>
@@ -22,7 +27,7 @@ const MyReviewsTableRows = ({ myReview }) => {
                 </button>
             </td>
             <td>
-                <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
+                <button onClick={()=>handleDelete(_id)} type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
                     <TrashIcon className="h-6 w-6 text-red-600 font-bold" />
                     <span className='text-red-600 font-bold'>Remove</span>
                 </button>

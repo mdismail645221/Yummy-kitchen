@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthConext } from '../../context/AuthProvider';
 import logo from '../../assets/images/favicon.ico'
 
 const Header = () => {
+    const navigate = useNavigate()
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { user, logOut } = useContext(AuthConext);
@@ -11,7 +12,9 @@ const Header = () => {
 
     const handleLogOut = () => [
         logOut()
-            .then(() => { })
+            .then(() => { 
+                navigate('/')
+            })
             .then((error) => {
                 console.log(error)
             })

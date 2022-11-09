@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthConext } from '../../context/AuthProvider';
 import MyReviewsTableRows from './MyReviewsTableRows';
 
@@ -21,6 +22,22 @@ const MyReviews = () => {
     }, [user.email])
 
 
+    // delete itmes functionality handler
+    const handleDelete = (_id) => {
+        fetch(`http://localhost:5000/allReviews/${_id}`, {
+            method: 'DELETE'
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            if(data.deletedCount > 0){
+                toast.success('Successfully Delete. GOOD JOB')
+                const remaining = myReviews.filter(review=> review._id !== _id);
+                setSetReviews(remaining)
+            }
+        })
+    }
+
+
 
     return (
         <div className="overflow-x-auto container mx-auto my-20">
@@ -40,6 +57,7 @@ const MyReviews = () => {
                      myReviews.map(myReview=> <MyReviewsTableRows
                         key={myReview._id}
                         myReview={myReview}
+                        handleDelete={handleDelete}
                      ></MyReviewsTableRows>)
                    }
                 </tbody>

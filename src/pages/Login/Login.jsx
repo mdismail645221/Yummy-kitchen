@@ -40,6 +40,7 @@ const Login = () => {
     const googleLogInHandler = () => {
         googleLogIn(googleProvider)
         .then(result=> {
+            navigate(from, {replace: true})
             const user = result.user;
             console.log(user)
         })
@@ -82,7 +83,7 @@ const Login = () => {
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="text-sm text-left font-bold">Password</label>
-                                <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
+                                <a  href="/" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
                             </div>
                             <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                         </div>

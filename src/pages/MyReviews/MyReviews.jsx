@@ -17,7 +17,7 @@ const MyReviews = () => {
     // query method get the signle email value in database
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allReviews?email=${user.email}`, {
+        fetch(`https://test-server-eight.vercel.app/allReviews?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('YUMMY-TOKEN')}`
             }
@@ -40,7 +40,7 @@ const MyReviews = () => {
         const agreed = window.confirm('Are you sure Delete your Review');
         if (agreed) {
             agreed(
-                fetch(`http://localhost:5000/allReviews/${_id}`, {
+                fetch(`https://test-server-eight.vercel.app/allReviews/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

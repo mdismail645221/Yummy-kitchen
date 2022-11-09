@@ -21,7 +21,7 @@ const AddService = () => {
     const addSubmitHandler = (event) => {
         event.preventDefault();
         // add the mondodb database store
-        fetch(`http://localhost:5000/Allservices`, {
+        fetch(`https://test-server-eight.vercel.app/Allservices`, {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

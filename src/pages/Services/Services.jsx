@@ -42,7 +42,7 @@ const Services = () => {
             event.target.form.reset()
         }
 
-        fetch(`http://localhost:5000/allReviews`, {
+        fetch(`https://test-server-eight.vercel.app/allReviews`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const Services = () => {
 
     // all reviews data load in database
     useEffect(()=>{
-        fetch( `http://localhost:5000/allReviews`)
+        fetch( `https://test-server-eight.vercel.app/allReviews`)
         .then(res=> res.json())
         .then(data=> {
             setAllReviews(data)

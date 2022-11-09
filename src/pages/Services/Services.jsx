@@ -1,4 +1,4 @@
-import { data } from 'autoprefixer';
+// import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -28,7 +28,7 @@ const Services = () => {
         
         const singleRiviews = {
             serviceInfo: userReviewMsg,
-            useEmail: user?.email,
+            email: user?.email,
             userName: user?.displayName,
             serviceId : _id,
             userImg: user?.photoURL,
@@ -68,7 +68,7 @@ const Services = () => {
             // console.log(data)
             setAllReviews(data)
         })
-    },[]) 
+    },[userReviewMsg]) 
 
     
 

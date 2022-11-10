@@ -1,24 +1,22 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthConext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
-import {useNavigate, useLocation, Link} from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
 
-
-
     const [error, setError] = useState(null)
-    const {logIn, googleLogIn} = useContext(AuthConext);
+    const { logIn, googleLogIn } = useContext(AuthConext);
     const googleProvider = new GoogleAuthProvider();
     useTitle('Login')
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    let from = location?.state?.from?.pathname || '/';
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
-    
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,74 +25,74 @@ const Login = () => {
         const password = form.password.value;
 
         logIn(email, password)
-        .then(result=> {
-            const user = result.user;
-            form.reset()
-            toast.success('successfully login. GOOD JOB', {duration: 3000})
-            // console.log(user)
+            .then(result => {
+                const user = result.user;
+                form.reset()
+                toast.success('successfully login. GOOD JOB', { duration: 3000 })
+                // console.log(user)
 
 
 
-            // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
-            const currentUser = {
-                email: user.email
-            }
-
-            fetch(`https://test-server-eight.vercel.app/jwt`, {
-                method: 'POST', 
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(currentUser)
-            })
-            .then(res=> res.json())
-            .then(data=> {
-                console.log(data)
-                if(data){
-                    localStorage.setItem('YUMMY-TOKEN', data.token)
+                // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
+                const currentUser = {
+                    email: user.email
                 }
+
+                fetch(`https://test-server-eight.vercel.app/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data) {
+                            localStorage.setItem('YUMMY-TOKEN', data.token)
+                        }
+                        navigate(from, { replace: true });
+                    })
             })
-            navigate(from, {replace: true})
-        })
-        .catch((error)=> {
-            console.error(error)
-            setError(error.message)
-        })
+            .catch((error) => {
+                console.error(error)
+                setError(error.message)
+            })
     }
 
 
     const googleLogInHandler = () => {
         googleLogIn(googleProvider)
-        .then(result=> {
+            .then(result => {
 
-            const user = result.user;
+                const user = result.user;
 
 
-             // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
-             const currentUser = {
-                email: user.email
-            }
-
-            fetch(`https://test-server-eight.vercel.app/jwt`, {
-                method: 'POST', 
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(currentUser)
-            })
-            .then(res=> res.json())
-            .then(data=> {
-                console.log(data)
-                if(data){
-                    localStorage.setItem('YUMMY-TOKEN', data.token)
+                // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
+                const currentUser = {
+                    email: user.email
                 }
-                navigate(from, {replace: true})
-            })
 
-        })
-        .catch((error)=> {
-            console.log(error)
-        })
+                fetch(`https://test-server-eight.vercel.app/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data) {
+                            localStorage.setItem('YUMMY-TOKEN', data.token)
+                        }
+                        navigate(from, { replace: true })
+                    })
+
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
 
@@ -122,7 +120,7 @@ const Login = () => {
                     <p className="px-3 dark:text-gray-400">OR</p>
                     {/* <hr className="w-full dark:text-gray-400"> */}
                 </div>
-                <form onSubmit={handleSubmit}  className="space-y-8 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} className="space-y-8 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm text-left font-bold">Email address</label>
@@ -131,7 +129,7 @@ const Login = () => {
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="text-sm text-left font-bold">Password</label>
-                                <a  href="/" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
+                                <a href="/" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
                             </div>
                             <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                         </div>

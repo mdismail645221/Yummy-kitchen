@@ -1,21 +1,21 @@
-import { PrinterIcon } from "@heroicons/react/24/solid";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AddService from "../pages/AddService/AddService";
 import Blog from "../pages/Blog/Blog";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import MyReviews from "../pages/MyReviews/MyReviews";
 import Register from "../pages/Register/Register";
 import AllServices from "../pages/Services/AllServices";
 import Services from "../pages/Services/Services";
-import PrivateRoutes from "./PrivateRoutes";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        errorElement: <div>Not found</div>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myReviews',
-                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/AddService',

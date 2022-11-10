@@ -1,5 +1,4 @@
 import React from 'react';
-import womanFood from '../../../assets/images/aboutLogo.png';
 import tomato from '../../../assets/images/tomato copy.png';
 import vagitables from '../../../assets/images/vegitables.png';
 import '../About/About.css'

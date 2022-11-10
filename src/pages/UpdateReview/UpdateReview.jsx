@@ -13,7 +13,7 @@ const UpdateReview = () => {
         event.preventDefault();
         console.log(user)
         fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews/${user._id}`, {
-            method: 'put',
+            method: 'PUT',
             headers: {
                 'content-type' : 'application/json'
             },

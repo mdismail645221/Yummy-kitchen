@@ -1,29 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {TrashIcon, PencilIcon  } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 
 const MyReviewsTableRows = ({ myReview, handleDelete }) => {
     // console.log(myReview)
     const { userImg, userName, serviceInfo, _id } = myReview;
-
-
-
-    // console.log(upUserReviewMsg)
-
-
-    const UpdateUser = (event ) => {
-        event.preventDefault();
-
-        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify()
-        })
-
-
-    }
 
 
 

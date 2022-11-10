@@ -30,6 +30,7 @@ const AddService = () => {
         })
         .then(res=> res.json())
         .then(data=> {
+            event.target.reset()
             toast.success('successfully')
             // console.log(data)
         })

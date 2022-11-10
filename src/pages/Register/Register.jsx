@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import rgBanner from '../../assets/images/rgBanner.jpg'
 import { AuthConext } from '../../context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
@@ -9,6 +9,11 @@ const Register = () => {
     const [error, setError] = useState(null)
     const { createUser, updateUser } = useContext(AuthConext)
     useTitle('register')
+
+
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
 
     const submitHandler = (event) => {
@@ -26,6 +31,30 @@ const Register = () => {
                 const user = result.user;
                 updateUsers(name, url)
                 console.log(user)
+
+
+                  // JWT TOKEN SERVER SITE CONNECT AND TOKEN LOCAL STORATE SAVED
+                  const currentUser = {
+                    email: user.email
+                }
+
+                fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data) {
+                            localStorage.setItem('YUMMY-TOKEN', data.token)
+                        }
+                        navigate(from, { replace: true });
+                    })
+
+
             })
             .catch((error) => {
                 console.log(error)

@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {TrashIcon, PencilIcon  } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom';
 
 const MyReviewsTableRows = ({ myReview, handleDelete }) => {
     // console.log(myReview)
     const { userImg, userName, serviceInfo, _id } = myReview;
 
 
+
+    // console.log(upUserReviewMsg)
+
+
+    const UpdateUser = (event ) => {
+        event.preventDefault();
+
+        fetch(`http://localhost:5000/allReviews/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify()
+        })
+
+
+    }
 
 
 
@@ -18,13 +36,13 @@ const MyReviewsTableRows = ({ myReview, handleDelete }) => {
             </th>
             <td>{userName}</td>
             <td>
-                <textarea className="textarea textarea-bordered w-full" defaultValue={serviceInfo} disabled></textarea>
+                <textarea  className="textarea textarea-bordered w-full" defaultValue={serviceInfo} readOnly></textarea>
             </td>
             <td>
-                <button type="button" className="btn px-3 btn-outline flex items-center py-1 pl-0 space-x-1">
+                <Link to={`/updateUpser/${_id}`}  className="btn w-1/2 px-3 btn-outline flex items-center py-1 pl-0 space-x-1">
                     <PencilIcon className="h-6 w-6 text-green-600 font-bold " />
-                    <span className='text-green-600 font-bold '>Edit</span>
-                </button>
+                    <span className='text-green-600 font-bold '>Update</span>
+                </Link>
             </td>
             <td>
                 <button onClick={()=>handleDelete(_id)} type="button" className="btn btn-outline flex items-center px-2 py-1 pl-0 space-x-1">

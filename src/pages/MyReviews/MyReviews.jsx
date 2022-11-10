@@ -39,19 +39,18 @@ const MyReviews = () => {
     const handleDelete = (_id) => {
         const agreed = window.confirm('Are you sure Delete your Review');
         if (agreed) {
-            agreed(
-                fetch(`https://test-server-eight.vercel.app/allReviews/${_id}`, {
-                    method: 'DELETE'
+
+            fetch(`https://test-server-eight.vercel.app/allReviews/${_id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast.success('Successfully Delete. GOOD JOB')
+                        const remaining = myReviews.filter(review => review._id !== _id);
+                        setSetReviews(remaining)
+                    }
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            toast.success('Successfully Delete. GOOD JOB')
-                            const remaining = myReviews.filter(review => review._id !== _id);
-                            setSetReviews(remaining)
-                        }
-                    })
-            )
         }
     }
 
@@ -60,7 +59,7 @@ const MyReviews = () => {
     return (
         <div className="overflow-x-auto container mx-auto my-20">
             {
-                myReviews.length === 0 ?
+                myReviews?.length === 0 ?
                     <>
                         <div className='h-screen flex flex-col justify-center items-center'>
                             <h2 className='text-5xl py-3 font-bold'>No reviews were added</h2>
@@ -78,13 +77,13 @@ const MyReviews = () => {
                                 <th></th>
                                 <th>Name</th>
                                 <th>Reviews</th>
-                                <th>Edit</th>
+                                <th>Update</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                myReviews.map(myReview => <MyReviewsTableRows
+                                myReviews?.map(myReview => <MyReviewsTableRows
                                     key={myReview._id}
                                     myReview={myReview}
                                     handleDelete={handleDelete}

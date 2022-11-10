@@ -42,7 +42,7 @@ const Services = () => {
             event.target.form.reset()
         }
 
-        fetch(`https://test-server-eight.vercel.app/allReviews`, {
+        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const Services = () => {
 
     // all reviews data load in database
     useEffect(()=>{
-        fetch( `https://test-server-eight.vercel.app/allReviews`)
+        fetch( `https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews`)
         .then(res=> res.json())
         .then(data=> {
             setAllReviews(data)

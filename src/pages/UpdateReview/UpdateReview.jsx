@@ -12,7 +12,7 @@ const UpdateReview = () => {
     const handleUpdateUser = event => {
         event.preventDefault();
         console.log(user)
-        fetch(`http://localhost:5000/allReviews/${user._id}`, {
+        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews/${user._id}`, {
             method: 'put',
             headers: {
                 'content-type' : 'application/json'

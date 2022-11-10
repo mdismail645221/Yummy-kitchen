@@ -38,7 +38,7 @@ const Login = () => {
                     email: user.email
                 }
 
-                fetch(`https://test-server-eight.vercel.app/jwt`, {
+                fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/jwt`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -73,7 +73,7 @@ const Login = () => {
                     email: user.email
                 }
 
-                fetch(`https://test-server-eight.vercel.app/jwt`, {
+                fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/jwt`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

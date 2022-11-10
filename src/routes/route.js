@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`https://test-server-eight.vercel.app/allservices/${params.id}`),
+                loader: ({ params }) => fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allservices/${params.id}`),
                 element: <Services></Services>
             },
             {
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
             {
                 path: '/updateUpser/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({params})=> fetch(`http://localhost:5000/allReviews/${params.id}`)
+                loader: ({params})=> fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews/${params.id}`)
             }
         ]
     }

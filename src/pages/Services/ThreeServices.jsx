@@ -7,7 +7,7 @@ const ThreeServices = () => {
 
     const [kitchenProducts, setKitchenProducts] = useState([]);
     useEffect(() => {
-        fetch(`https://test-server-eight.vercel.app/services`)
+        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

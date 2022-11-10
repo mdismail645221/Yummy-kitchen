@@ -14,7 +14,7 @@ const MyReviewsTableRows = ({ myReview, handleDelete }) => {
     const UpdateUser = (event ) => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/allReviews/${_id}`, {
+        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

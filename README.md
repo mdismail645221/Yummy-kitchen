@@ -12,4 +12,6 @@
         5. react hot toast
         5. firebase authenticaton
         6. local storage use in jwt token
+        7. react-icons
+        
 

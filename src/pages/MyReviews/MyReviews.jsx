@@ -57,7 +57,7 @@ const MyReviews = () => {
 
 
     return (
-        <div className="overflow-x-auto container mx-auto my-20">
+        <div className="container mx-auto my-20">
             {
                 myReviews?.length === 0 ?
                     <>
@@ -70,27 +70,29 @@ const MyReviews = () => {
                         </div>
                     </>
                     :
-                    <table className="table w-full">
-                        {/* <!-- head --> */}
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Reviews</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                myReviews?.map(myReview => <MyReviewsTableRows
-                                    key={myReview._id}
-                                    myReview={myReview}
-                                    handleDelete={handleDelete}
-                                ></MyReviewsTableRows>)
-                            }
-                        </tbody>
-                    </table>
+                    <div className='overflow-x-auto w-full'>
+                        <table className="table w-full">
+                            {/* <!-- head --> */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Reviews</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    myReviews?.map(myReview => <MyReviewsTableRows
+                                        key={myReview._id}
+                                        myReview={myReview}
+                                        handleDelete={handleDelete}
+                                    ></MyReviewsTableRows>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
             }
         </div>
     );

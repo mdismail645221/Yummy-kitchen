@@ -17,7 +17,7 @@ const MyReviews = () => {
     // query method get the signle email value in database
 
     useEffect(() => {
-        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews?email=${user.email}`, {
+        fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/myReviews?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('YUMMY-TOKEN')}`
             }

@@ -51,7 +51,7 @@ const Services = () => {
         })
         .then(res=> res.json())
         .then(data => {
-            console.log(data)
+            allReviews()
         })
 
     }
@@ -66,7 +66,7 @@ const Services = () => {
             setAllReviews(data)
             setLoading(false)
         })
-    },[userReviewMsg]) 
+    }, []) 
 
 
 

@@ -4,17 +4,26 @@ import {Link} from 'react-router-dom'
 
 const ThreeServices = () => {
     const [kitchenProducts, setKitchenProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         fetch(`https://b6a11-service-review-server-side-mdismail645221.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 setKitchenProducts(data)
+                setLoading(false)
             })
     }, [])
-    console.log(kitchenProducts)
+    // console.log(kitchenProducts)
 
-
+    if(loading){
+        return <><div class="h-screen bg-white">
+            <div class="flex justify-center items-center h-full">
+                <img className='w-12 h-12' src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt='log'/>
+            </div>
+        </div></>
+    }
 
     return (
         <section className='w-4/5 mx-auto mt-24'>

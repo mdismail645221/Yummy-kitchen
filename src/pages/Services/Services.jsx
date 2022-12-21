@@ -7,7 +7,7 @@ import useTitle from '../../hooks/useTitle';
 import AllReviews from './AllReviews';
 
 const Services = () => {
-
+    const [loading, setLoading] = useState(false)
     const [userReviewMsg, setUserReviewMsg] = useState('')
     const [allReviews, setAllReviews] = useState([]);
     const { user } = useContext(AuthConext)
@@ -59,13 +59,24 @@ const Services = () => {
 
     // all reviews data load in database
     useEffect(()=>{
+        setLoading(true)
         fetch( `https://b6a11-service-review-server-side-mdismail645221.vercel.app/allReviews`)
         .then(res=> res.json())
         .then(data=> {
             setAllReviews(data)
+            setLoading(false)
         })
     },[userReviewMsg]) 
 
+
+
+    if (loading) {
+        return <><div class="h-screen bg-white">
+            <div class="flex justify-center items-center h-full">
+                <img className='w-12 h-12' src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt='log' />
+            </div>
+        </div></>
+    }
     
 
 

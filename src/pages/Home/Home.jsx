@@ -4,6 +4,8 @@ import Reviews from '../Reviews/Reviews';
 import ThreeServices from '../Services/ThreeServices';
 import Slider from '../shared/Sliders/Slider';
 import About from './About/About';
+import HomeApps from './HomeApps/HomeApps';
+
 
 const Home = () => {
     useTitle('Home')
@@ -13,6 +15,7 @@ const Home = () => {
             <ThreeServices></ThreeServices>
             <About></About>
             <Reviews></Reviews>
+            <HomeApps></HomeApps>
         </div>
     );
 };

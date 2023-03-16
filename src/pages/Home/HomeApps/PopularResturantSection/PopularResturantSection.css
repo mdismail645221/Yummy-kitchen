@@ -1,0 +1,18 @@
+
+.react-multi-carousel-track{
+    gap: 1.5rem;
+}
+
+.react-multi-carousel-track img {
+    border-radius: 15px;
+}
+
+.card-image{
+    overflow: hidden;
+    transition: 4000ms;
+}
+
+.card-image:hover img{
+    height: 300px;
+    transition: 4000ms;
+}

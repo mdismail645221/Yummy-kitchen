@@ -9,9 +9,9 @@ const Slider = () => {
     return (
         <section className='w-full'>
             <div className="carousel">
-                <div id="slide1" className="carousel-item relative w-full" style={{ height: "600px" }}>
-                    <div id='img-gradiant' className='w-full h-screen'>
-                        <img src={humble} className='w-full' style={{ height: "600px" }} alt='pitha' />
+                <div id="slide1" className="carousel-item relative w-full" style={{ height: "70vh" }}>
+                    <div id='img-gradiant' className='w-full h-full relative'>
+                        <img src={humble} className='absolute top-0 left-0 w-full h-full' style={{ objectFit: "cover" }} alt='pitha' />
                     </div>
                     <div className="absolute flex justify-between transform translate-x-1/2 gap-3 bottom-0 right-1/2 my-5">
                         <a href="#slide4" className="btn btn-circle bg-orange-500 ">❮</a>
@@ -27,9 +27,10 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                <div id="slide2" className="carousel-item relative w-full" style={{ height: "600px" }}>
-                    <div id='img-gradiant' className='w-full h-screen'>
-                        <img src={banner2} className='w-full' style={{ height: "600px" }} alt='pitha' />
+                <div id="slide2" className="carousel-item relative w-full"style={{ height: "70vh" }}>
+
+                    <div id='img-gradiant' className='w-full h-full'>
+                        <img src={banner2} className='absolute top-0 left-0 w-full h-full' style={{ objectFit: "cover" }} alt='pitha' />
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 gap-3 bottom-0 right-1/2">
                         <a href="#slide1" className="btn btn-circle bg-orange-500">❮</a>
@@ -45,9 +46,9 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                <div id="slide3" className="carousel-item relative w-full" style={{ height: "600px" }}>
-                    <div id='img-gradiant' className='w-full h-screen'>
-                        <img src={puliPitha} className='w-full' style={{ height: "600px" }} alt='slider' />
+                <div id="slide3" className="carousel-item relative w-full" style={{ height: "70vh" }}>
+                    <div id='img-gradiant' className='w-full h-full'>
+                        <img src={puliPitha} className='absolute top-0 left-0 w-full h-full' style={{ objectFit: "cover" }} alt='pitha' />
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 gap-3 bottom-0 right-1/2">
                         <a href="#slide2" className="btn btn-circle bg-orange-500">❮</a>
@@ -63,9 +64,9 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                <div id="slide4" className="carousel-item relative w-full" style={{ height: "600px" }}>
-                    <div id='img-gradiant' className='w-full h-screen' >
-                        <img src={banner1} className='w-full' style={{ height: "600px" }} alt='pitha' />
+                <div id="slide4" className="carousel-item relative w-full" style={{ height: "70vh" }}>
+                    <div id='img-gradiant' className='w-full h-full' >
+                        <img src={banner1} className='absolute top-0 left-0 w-full h-full' style={{ objectFit: "cover" }} alt='pitha' />
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 gap-3 bottom-0 right-1/2">
                         <a href="#slide3" className="btn btn-circle bg-orange-500">❮</a>

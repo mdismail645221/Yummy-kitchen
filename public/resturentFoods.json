@@ -1,0 +1,50 @@
+[
+    {
+        "name": "FizzaMoom",
+        "image": "https://i.ibb.co/5YZYpp2/food6.png",
+        "rating": 3.5,
+        "title": "Fast Food",
+        "rate": 210,
+        "offer": "12%"
+    },
+    {
+        "name": "Bistro - Tasty & Fresh",
+        "image": "https://i.ibb.co/YWxPf8k/food7.png",
+        "rating": 2.5,
+        "title": "Fast Food",
+        "rate": 190,
+        "offer": "15%"
+    },
+    {
+        "name": "Dhakaiya Biriyani",
+        "image": "https://i.ibb.co/WKXs6YD/food4.png",
+        "rating": 4.5,
+        "title": "Rice Dices",
+        "rate": 350,
+        "offer": "10%"
+    },
+    {
+        "name": "Nana Street Food Corner",
+        "image": "https://i.ibb.co/d5n9Mp8/food1.png",
+        "rating": 4.5,
+        "title": "Fast Food",
+        "rate": 150,
+        "offer": "13%"
+    },
+    {
+        "name": "Nana Street Food Corner",
+        "image": "https://i.ibb.co/LN93sVF/food2.png",
+        "rating": 4.5,
+        "title": "Fast Food",
+        "rate": 150,
+        "offer": "13%"
+    },
+    {
+        "name": "City Point Restaurant",
+        "image": "https://i.ibb.co/SNYJ7nd/food5.png",
+        "rating": 3.6,
+        "title": "Bangladeshi",
+        "rate": 150,
+        "offer": "13%"
+    }
+]

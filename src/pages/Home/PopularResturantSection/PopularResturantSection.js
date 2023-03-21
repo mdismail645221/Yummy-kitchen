@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { toast } from 'react-hot-toast';
-import '../PopularResturantSection/PopularResturantSection.css'
+import './PopularResturantSection.css'
+import Loading from '../../../Components/Loading/Loading';
 
 const PopularResturantSection = () => {
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         fetch('/resturentFoods.json')
             .then(res => res.json())
             .then(data => setItems(data))
+            setLoading(false)
     }, [])
 
     const responsive = {
@@ -38,8 +42,15 @@ const PopularResturantSection = () => {
         toast.success(<><span>Functionality will coming soon. {emoji}</span></>)
     }
 
+    if(loading){
+        return <Loading/>
+    }
+
     return (
-        <section>
+        <section className="mb-[120px]">
+            <div className='mb-12'>
+                <h3 className='text-5xl font-bold primary-color'>List of popular foods</h3>
+            </div>
             <Carousel
                 // swipeable={true}
                 // draggable={false}
@@ -64,7 +75,7 @@ const PopularResturantSection = () => {
                                     <h2 className="card-title">{item?.name}</h2>
                                     <p>If a dog chews shoes whose shoes does he choose?</p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
+                                        <button className="btn btn-primary" onClick={handleBooking}>Buy Now</button>
                                     </div>
                                 </div>
                             </div>

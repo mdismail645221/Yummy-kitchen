@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
+import Loading from '../../Components/Loading/Loading';
 import { AuthConext } from '../../context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import AllReviews from './AllReviews';
@@ -71,11 +72,7 @@ const Services = () => {
 
 
     if (loading) {
-        return <><div class="h-screen bg-white">
-            <div class="flex justify-center items-center h-full">
-                <img className='w-12 h-12' src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt='log' />
-            </div>
-        </div></>
+        return <Loading/>
     }
     
 

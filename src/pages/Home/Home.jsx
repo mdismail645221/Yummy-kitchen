@@ -5,7 +5,8 @@ import ThreeServices from '../Services/ThreeServices';
 import Slider from '../shared/Sliders/Slider';
 import About from './About/About';
 import HomeApps from './HomeApps/HomeApps';
-import PopularResturantSection from './HomeApps/PopularResturantSection/PopularResturantSection';
+import PopularResturantSection from './PopularResturantSection/PopularResturantSection';
+
 
 
 const Home = () => {
